@@ -1,7 +1,7 @@
 # owoify_ex
 Turning your worst nightmare into a Hex package.
 
-- [Hex package]()
+- [Hex package](https://hex.pm/packages/owoify_ex)
 
 This is a Elixir port of [mohan-cao's owoify-js](https://github.com/mohan-cao/owoify-js), which will help you turn any string into nonsensical babyspeak similar to LeafySweet's infamous Chrome extension.
 
@@ -19,7 +19,7 @@ What? You think I have already made enough port so I won't be making new ports? 
 Because Elixir is a very nice language and it deserves a owoify package.
 
 ## Installation
-owoify_ex is [available in Hex](). The package can be installed
+owoify_ex is [available in Hex](https://hex.pm/packages/owoify_ex). The package can be installed
 by adding `owoify_ex` to your list of dependencies in `mix.exs`:
 
 ```elixir
