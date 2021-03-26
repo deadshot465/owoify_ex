@@ -4,7 +4,7 @@ defmodule OwoifyEx.MixProject do
   def project do
     [
       app: :owoify_ex,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -36,8 +36,8 @@ defmodule OwoifyEx.MixProject do
   defp package do
     [
       name: "owoify_ex",
-      files: ~w(lib priv .formatter.exs mix.exs README* readme* LICENSE*
-                license* CHANGELOG* changelog* src),
+      files: ~w(lib .formatter.exs mix.exs README* LICENSE*
+                CHANGELOG*),
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/deadshot465/owoify_ex"}
     ]

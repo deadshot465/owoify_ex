@@ -10,7 +10,7 @@ defmodule OwoifyEx do
   ## Examples
 
       iex> OwoifyEx.owoify("This is the string to owo! Kinda cute isn't it?")
-      :world
+      This is teh stwing two owo! Kinda cute isn't it?
 
   """
   def owoify(source, level \\ "owo") do
