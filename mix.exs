@@ -4,8 +4,8 @@ defmodule OwoifyEx.MixProject do
   def project do
     [
       app: :owoify_ex,
-      version: "0.1.1",
-      elixir: "~> 1.11",
+      version: "0.1.2",
+      elixir: "~> 1.0",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       description: description(),
