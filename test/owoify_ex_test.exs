@@ -6,19 +6,16 @@ defmodule OwoifyExTest do
 
   test "owoify with owo level" do
     result = OwoifyEx.owoify(@source)
-    IO.puts(result)
     assert String.length(result) > 0
   end
 
   test "owoify with uwu level" do
     result = OwoifyEx.owoify(@source, "uwu")
-    IO.puts(result)
     assert String.length(result) > 0
   end
 
   test "owoify with uvu level" do
     result = OwoifyEx.owoify(@source, "uvu")
-    IO.puts(result)
     assert String.length(result) > 0
   end
 
