@@ -1,6 +1,8 @@
 # owoify_ex
 Turning your worst nightmare into a Hex package.
 
+[![Elixir CI](https://github.com/deadshot465/owoify_ex/actions/workflows/elixir.yml/badge.svg)](https://github.com/deadshot465/owoify_ex/actions/workflows/elixir.yml)
+
 - [Hex package](https://hex.pm/packages/owoify_ex)
 
 This is a Elixir port of [mohan-cao's owoify-js](https://github.com/mohan-cao/owoify-js), which will help you turn any string into nonsensical babyspeak similar to LeafySweet's infamous Chrome extension.
