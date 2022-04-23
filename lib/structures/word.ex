@@ -1,4 +1,6 @@
 defmodule Word do
+  @moduledoc false
+
   defstruct [
     :word,
     :replaced_words

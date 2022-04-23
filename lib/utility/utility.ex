@@ -1,5 +1,8 @@
 defmodule Utility do
-  def interleave_arrays(a, b) do
+  @moduledoc false
+
+  @spec interleave_lists(list(), list()) :: list
+  def interleave_lists(a, b) do
     interleave([], a, b, 0) |> Enum.reverse()
   end
 

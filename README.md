@@ -5,7 +5,7 @@ Turning your worst nightmare into a Hex package.
 
 - [Hex package](https://hex.pm/packages/owoify_ex)
 
-This is a Elixir port of [mohan-cao's owoify-js](https://github.com/mohan-cao/owoify-js), which will help you turn any string into nonsensical babyspeak similar to LeafySweet's infamous Chrome extension.
+This is an Elixir port of [mohan-cao's owoify-js](https://github.com/mohan-cao/owoify-js), which will help you turn any string into nonsensical babyspeak similar to LeafySweet's infamous Chrome extension.
 
 Just like my other Owoify ports, three levels of owoness are available:
 
@@ -21,7 +21,7 @@ What? You think I have already made enough port so I won't be making new ports? 
 Because Elixir is a very nice language and it deserves a owoify package.
 
 ## Installation
-owoify_ex is [available in Hex](https://hex.pm/packages/owoify_ex). The package can be installed
+owoify_ex is [available on Hex](https://hex.pm/packages/owoify_ex). The package can be installed
 by adding `owoify_ex` to your list of dependencies in `mix.exs`:
 
 ```elixir
@@ -61,6 +61,13 @@ That being said, PRs are always welcomed.
 - [owoify-py](https://pypi.org/project/owoify-py/) - The Python port of Owoify written by me.
 - [owoify_dart](https://pub.dev/packages/owoify_dart) - The Dart port of Owoify written by me.
 - [owoify_rb](https://rubygems.org/gems/owoify_rb) - The Ruby port of Owoify written by me.
-- [owoify-go](https://github.com/deadshot465/owoify-go) - The Go port of Owoify written by me.
+- [owoify-go](https://pkg.go.dev/github.com/deadshot465/owoify-go) - The Go port of Owoify written by me.
 - [owoifySwift](https://github.com/deadshot465/OwoifySwift) - The Swift port of Owoify written by me.
-- [owoifyKt](https://github.com/deadshot465/owoifyKt) - The Kotlin port of Owoify written by me. Being moved to MavenCentral as Bintray retires.
+- [owoifyKt](https://search.maven.org/search?q=g:%22io.github.deadshot465%22%20AND%20a:%22owoifyKt%22) - The Kotlin port of Owoify written by me.
+- [owoify_ex](https://hex.pm/packages/owoify_ex) - This port.
+- [owoify_cr](https://crystalshards.org/shards/github/deadshot465/owoify_cr) - The Crystal port of Owoify written by me.
+- [owoifynim](https://nimble.directory/pkg/owoifynim) - The Nim port of Owoify written by me.
+- [owoify-clj](https://clojars.org/net.clojars.deadshot465/owoify-clj) - The Clojure port of Owoify written by me.
+- [purescript-owoify](https://pursuit.purescript.org/packages/purescript-owoify) - The PureScript port of Owoify written by me.
+- [owoify-hs](https://hackage.haskell.org/package/owoify-hs) - The Haskell port of Owoify written by me.
+- [owoify_erl](https://github.com/deadshot465/owoify_erl/) - The Erlang port of Owoify written by me.

@@ -1,4 +1,6 @@
 defmodule Presets do
+  @moduledoc false
+
   @spec specific_word_mapping_list :: [(Word.t() -> Word.t()), ...]
   def specific_word_mapping_list do
     [

@@ -3,7 +3,9 @@ defmodule OwoifyEx do
   Turning your worst nightmare into a Hex package. https://codepen.io/newbeetf2/pen/yLLaNPZ
   """
 
-  @spec owoify(String.t(), String.t()) :: String.t()
+  @type owoness :: :owo | :uwu | :uvu
+
+  @spec owoify(String.t(), owoness()) :: String.t()
   @doc """
   The main entry point of `OwoifyEx`.
 
@@ -13,7 +15,7 @@ defmodule OwoifyEx do
       This is teh stwing two owo! Kinda cute isn't it?
 
   """
-  def owoify(source, level \\ "owo") do
+  def owoify(source, level \\ :owo) do
     words =
       Regex.scan(~r/[^\s]+/, source)
       |> Enum.to_list()
@@ -26,21 +28,19 @@ defmodule OwoifyEx do
       |> List.flatten()
       |> Enum.map(fn x -> Word.new(x) end)
 
-    actual_level = String.downcase(level)
-
     words =
       Enum.map(words, fn word ->
         Enum.reduce(Presets.specific_word_mapping_list(), word, fn f, w -> f.(w) end)
       end)
 
     words =
-      case actual_level do
-        "owo" ->
+      case level do
+        :owo ->
           Enum.map(words, fn word ->
             Enum.reduce(Presets.owo_mapping_list(), word, fn f, w -> f.(w) end)
           end)
 
-        "uwu" ->
+        :uwu ->
           Enum.map(words, fn word ->
             Enum.reduce(Presets.uwu_mapping_list(), word, fn f, w -> f.(w) end)
           end)
@@ -48,7 +48,7 @@ defmodule OwoifyEx do
             Enum.reduce(Presets.owo_mapping_list(), word, fn f, w -> f.(w) end)
           end)
 
-        "uvu" ->
+        :uvu ->
           Enum.map(words, fn word ->
             Enum.reduce(Presets.uvu_mapping_list(), word, fn f, w -> f.(w) end)
           end)
@@ -60,10 +60,10 @@ defmodule OwoifyEx do
           end)
 
         _ ->
-          raise("The specified owoify level is not supported.")
+          raise("The specified owoness level is not supported.")
       end
 
-    Utility.interleave_arrays(words, spaces)
+    Utility.interleave_lists(words, spaces)
     |> Enum.map(&Word.to_string/1)
     |> Enum.join()
     |> String.trim()

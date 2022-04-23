@@ -1,4 +1,6 @@
 defmodule Mappings do
+  @moduledoc false
+
   @o_to_owo Regex.compile!("o")
   @ew_to_uwu Regex.compile!("ew")
   @hey_to_hay Regex.compile!("([Hh])ey")
@@ -88,7 +90,7 @@ defmodule Mappings do
     "(/ =ω=)/",
     "(╯°□°）╯︵ ┻━┻",
     "┬─┬ ノ( ゜-゜ノ)",
-    "¯\_(ツ)_/¯"
+    "¯\\_(ツ)_/¯"
   ]
 
   @spec map_o_to_owo(Word.t()) :: Word.t()
