@@ -11,7 +11,13 @@ defmodule OwoifyEx.MixProject do
       description: description(),
       source_url: "https://github.com/deadshot465/owoify_ex",
       homepage_url: "https://github.com/deadshot465/owoify_ex",
-      package: package()
+      package: package(),
+      docs: [
+        extras: [
+          "README.md",
+          "CHANGELOG.md": [filename: "changelog", title: "Change Log"]
+        ]
+      ]
     ]
   end
 
