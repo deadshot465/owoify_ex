@@ -1,5 +1,7 @@
-defmodule Presets do
+defmodule OwoifyEx.Presets do
   @moduledoc false
+
+  alias OwoifyEx.{Mappings, Word}
 
   @spec specific_word_mapping_list :: [(Word.t() -> Word.t()), ...]
   def specific_word_mapping_list do
@@ -8,14 +10,21 @@ defmodule Presets do
       &Mappings.map_mom_to_mwom/1,
       &Mappings.map_time_to_tim/1,
       &Mappings.map_me_to_mwe/1,
-      &Mappings.map_n_vowel_to_ny/1,
       &Mappings.map_over_to_owor/1,
       &Mappings.map_ove_to_uv/1,
       &Mappings.map_haha_to_hehe_xd/1,
       &Mappings.map_the_to_teh/1,
       &Mappings.map_you_to_u/1,
       &Mappings.map_read_to_wead/1,
-      &Mappings.map_worse_to_wose/1
+      &Mappings.map_worse_to_wose/1,
+      &Mappings.map_great_to_gwate/1,
+      &Mappings.map_aviat_to_awiat/1,
+      &Mappings.map_dedicat_to_deditat/1,
+      &Mappings.map_remember_to_rember/1,
+      &Mappings.map_when_to_wen/1,
+      &Mappings.map_frightened_to_frigten/1,
+      &Mappings.map_meme_to_mem/1,
+      &Mappings.map_feel_to_fell/1
     ]
   end
 
@@ -47,6 +56,7 @@ defmodule Presets do
   @spec owo_mapping_list :: [(Word.t() -> Word.t()), ...]
   def owo_mapping_list do
     [
+      &Mappings.map_n_vowel_to_ny/1,
       &Mappings.map_ll_to_ww/1,
       &Mappings.map_vowel_or_r_except_o_l_to_wl/1,
       &Mappings.map_old_to_owld/1,
@@ -61,7 +71,9 @@ defmodule Presets do
       &Mappings.map_consonant_r_to_consonant_w/1,
       &Mappings.map_ly_to_wy/1,
       &Mappings.map_ple_to_pwe/1,
-      &Mappings.map_nr_to_nw/1
+      &Mappings.map_nr_to_nw/1,
+      &Mappings.map_mem_to_mwem/1,
+      &Mappings.unmap_nywo_to_nyo/1
     ]
   end
 end

@@ -1,5 +1,7 @@
-defmodule Mappings do
+defmodule OwoifyEx.Mappings do
   @moduledoc false
+
+  alias OwoifyEx.Word
 
   @o_to_owo Regex.compile!("o")
   @ew_to_uwu Regex.compile!("ew")
@@ -45,10 +47,14 @@ defmodule Mappings do
   @ly_to_wy_lower Regex.compile!("ly")
   @ple_to_pwe Regex.compile!("([Pp])le")
   @nr_to_nw_upper Regex.compile!("NR")
-  @nr_to_nw_lower Regex.compile!("nr")
+  @nr_to_nw_lower Regex.compile!("([Nn])r")
+  @mem_to_mwem_upper Regex.compile!("Mem")
+  @mem_to_mwem_lower Regex.compile!("mem")
+  @nywo_to_nyo Regex.compile!("([Nn])ywo")
   @fuc_to_fwuc Regex.compile!("([Ff])uc")
   @mom_to_mwom Regex.compile!("([Mm])om")
-  @me_to_mwe Regex.compile!("([Mm])e")
+  @me_to_mwe_upper Regex.compile!("^Me$")
+  @me_to_mwe_lower Regex.compile!("^me$")
   @n_vowel_to_ny_first Regex.compile!("n([aeiou])")
   @n_vowel_to_ny_second Regex.compile!("N([aeiou])")
   @n_vowel_to_ny_third Regex.compile!("N([AEIOU])")
@@ -61,6 +67,15 @@ defmodule Mappings do
   @time_to_tim Regex.compile!("\\b([Tt])ime\\b")
   @over_to_owor Regex.compile!("([Oo])ver")
   @worse_to_wose Regex.compile!("([Ww])orse")
+  @great_to_gwate Regex.compile!("([Gg])reat")
+  @aviat_to_awiat Regex.compile!("([Aa])viat")
+  @dedicat_to_deditat Regex.compile!("([Dd])edicat")
+  @remember_to_rember Regex.compile!("([Rr])emember")
+  @when_to_wen Regex.compile!("([Ww])hen")
+  @frightened_to_frigten Regex.compile!("([Ff])righten(ed)*")
+  @meme_to_mem_first Regex.compile!("Meme")
+  @meme_to_mem_second Regex.compile!("Mem")
+  @feel_to_fell Regex.compile!("^([Ff])eel$")
   @faces [
     "(・`ω´・)",
     ";;w;;",
@@ -276,8 +291,19 @@ defmodule Mappings do
 
   @spec map_nr_to_nw(Word.t()) :: Word.t()
   def map_nr_to_nw(input) do
-    Word.replace(input, @nr_to_nw_lower, "nw")
+    Word.replace(input, @nr_to_nw_lower, "\\1w")
     |> Word.replace(@nr_to_nw_upper, "NW")
+  end
+
+  @spec map_mem_to_mwem(Word.t()) :: Word.t()
+  def map_mem_to_mwem(input) do
+    Word.replace(input, @mem_to_mwem_upper, "mwem")
+    |> Word.replace(@mem_to_mwem_lower, "Mwem")
+  end
+
+  @spec unmap_nywo_to_nyo(Word.t()) :: Word.t()
+  def unmap_nywo_to_nyo(input) do
+    Word.replace(input, @nywo_to_nyo, "\\1yo")
   end
 
   @spec map_fuc_to_fwuc(Word.t()) :: Word.t()
@@ -292,7 +318,8 @@ defmodule Mappings do
 
   @spec map_me_to_mwe(Word.t()) :: Word.t()
   def map_me_to_mwe(input) do
-    Word.replace(input, @me_to_mwe, "\\1we")
+    Word.replace(input, @me_to_mwe_upper, "Mwe")
+    |> Word.replace(@me_to_mwe_lower, "mwe")
   end
 
   @spec map_n_vowel_to_ny(Word.t()) :: Word.t()
@@ -337,5 +364,46 @@ defmodule Mappings do
   @spec map_worse_to_wose(Word.t()) :: Word.t()
   def map_worse_to_wose(input) do
     Word.replace(input, @worse_to_wose, "\\1ose")
+  end
+
+  @spec map_great_to_gwate(Word.t()) :: Word.t()
+  def map_great_to_gwate(input) do
+    Word.replace(input, @great_to_gwate, "\\1wate")
+  end
+
+  @spec map_aviat_to_awiat(Word.t()) :: Word.t()
+  def map_aviat_to_awiat(input) do
+    Word.replace(input, @aviat_to_awiat, "\\1wiat")
+  end
+
+  @spec map_dedicat_to_deditat(Word.t()) :: Word.t()
+  def map_dedicat_to_deditat(input) do
+    Word.replace(input, @dedicat_to_deditat, "\\1editat")
+  end
+
+  @spec map_remember_to_rember(Word.t()) :: Word.t()
+  def map_remember_to_rember(input) do
+    Word.replace(input, @remember_to_rember, "\\1ember")
+  end
+
+  @spec map_when_to_wen(Word.t()) :: Word.t()
+  def map_when_to_wen(input) do
+    Word.replace(input, @when_to_wen, "\\1en")
+  end
+
+  @spec map_frightened_to_frigten(Word.t()) :: Word.t()
+  def map_frightened_to_frigten(input) do
+    Word.replace(input, @frightened_to_frigten, "\\1rigten")
+  end
+
+  @spec map_meme_to_mem(Word.t()) :: Word.t()
+  def map_meme_to_mem(input) do
+    Word.replace(input, @meme_to_mem_first, "mem")
+    |> Word.replace(@meme_to_mem_second, "Mem")
+  end
+
+  @spec map_feel_to_fell(Word.t()) :: Word.t()
+  def map_feel_to_fell(input) do
+    Word.replace(input, @feel_to_fell, "\\1ell")
   end
 end

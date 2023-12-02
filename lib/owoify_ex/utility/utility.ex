@@ -1,4 +1,4 @@
-defmodule Utility do
+defmodule OwoifyEx.Utility do
   @moduledoc false
 
   @spec interleave_lists(list(), list()) :: list

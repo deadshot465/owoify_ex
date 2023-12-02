@@ -4,7 +4,7 @@ defmodule OwoifyEx.MixProject do
   def project do
     [
       app: :owoify_ex,
-      version: "1.0.0",
+      version: "1.1.0",
       elixir: "~> 1.0",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -31,7 +31,9 @@ defmodule OwoifyEx.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:ex_doc, "~> 0.28", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.28", only: :dev, runtime: false},
+      {:dialyxir, "~> 1.2", only: :dev, runtime: false},
+      {:gradient, github: "esl/gradient", only: [:dev], runtime: false}
     ]
   end
 

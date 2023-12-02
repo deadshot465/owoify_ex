@@ -3,6 +3,8 @@ defmodule OwoifyEx do
   Turning your worst nightmare into a Hex package. https://codepen.io/newbeetf2/pen/yLLaNPZ
   """
 
+  alias OwoifyEx.{Presets, Utility, Word}
+
   @type owoness :: :owo | :uwu | :uvu
 
   @spec owoify(String.t(), owoness()) :: String.t()
@@ -67,5 +69,21 @@ defmodule OwoifyEx do
     |> Enum.map(&Word.to_string/1)
     |> Enum.join()
     |> String.trim()
+  end
+
+  @spec uwuify(String.t()) :: String.t()
+  @doc """
+  A convenience function for `OwoifyEx.owoify/2` with `:uwu` as the owoness.
+  """
+  def uwuify(source) do
+    owoify(source, :uwu)
+  end
+
+  @spec uvuify(String.t()) :: String.t()
+  @doc """
+  A convenience function for `OwoifyEx.owoify/2` with `:uvu` as the owoness.
+  """
+  def uvuify(source) do
+    owoify(source, :uvu)
   end
 end

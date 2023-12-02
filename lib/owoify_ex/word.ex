@@ -1,4 +1,4 @@
-defmodule Word do
+defmodule OwoifyEx.Word do
   @moduledoc false
 
   defstruct [
@@ -14,7 +14,7 @@ defmodule Word do
           replaced_words: replaced_words
         }
 
-  @spec search_value_contains_replaced_words(Word.t(), Regex.t(), String.t()) :: boolean()
+  @spec search_value_contains_replaced_words(t(), Regex.t(), String.t()) :: boolean()
   defp search_value_contains_replaced_words(%__MODULE__{} = w, search_value, replace_value) do
     Enum.any?(w.replaced_words, fn word ->
       if Regex.match?(search_value, word) do
@@ -30,7 +30,7 @@ defmodule Word do
     end)
   end
 
-  @spec new(String.t()) :: Word.t()
+  @spec new(String.t()) :: t()
   def new(str) do
     %__MODULE__{
       word: str,
@@ -38,12 +38,12 @@ defmodule Word do
     }
   end
 
-  @spec to_string(Word.t()) :: String.t()
+  @spec to_string(t()) :: String.t()
   def to_string(%__MODULE__{} = w) do
     w.word
   end
 
-  @spec replace(Word.t(), Regex.t(), String.t(), boolean()) :: Word.t()
+  @spec replace(t(), Regex.t(), String.t(), boolean()) :: t()
   def replace(%__MODULE__{} = w, search_value, replace_value, replace_replaced_words \\ false) do
     if !replace_replaced_words &&
          search_value_contains_replaced_words(w, search_value, replace_value) do
@@ -87,7 +87,7 @@ defmodule Word do
     end
   end
 
-  @spec replace_with_func_single(Word.t(), Regex.t(), (() -> String.t()), boolean()) :: Word.t()
+  @spec replace_with_func_single(t(), Regex.t(), (-> String.t()), boolean()) :: t()
   def replace_with_func_single(
         %__MODULE__{} = w,
         search_value,
@@ -140,11 +140,11 @@ defmodule Word do
   end
 
   @spec replace_with_func_multiple(
-          Word.t(),
+          t(),
           Regex.t(),
           (String.t(), String.t() -> String.t()),
           false
-        ) :: Word.t()
+        ) :: t()
   def replace_with_func_multiple(
         %__MODULE__{} = w,
         search_value,
